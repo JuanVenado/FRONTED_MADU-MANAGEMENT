@@ -1,4 +1,4 @@
-# Commits Rules & Branches Rules
+# Commits, Branches & Pull Requests Rules
 
 ## FRONTED_MADU-MANAGEMENT
 
@@ -203,3 +203,63 @@ Posteriormente, crear una Pull Request en GitHub desde `feat/login` hacia `main`
 Estas convenciones son obligatorias para los colaboradores del repositorio y deberán verificarse durante la revisión de las Pull Requests.
 
 Este documento no instala ni activa validaciones automáticas mediante GitHub Actions.
+
+## 10. Nomenclatura de Pull Requests
+
+Todas las Pull Requests deberán seguir el siguiente formato en su título:
+
+```text
+tipo(alcance): descripcion
+```
+
+Se utilizarán los mismos tipos y alcances establecidos en las reglas de commits.
+
+### 10.1. Ejemplos
+
+```text
+feat(auth): implementar inicio de sesion
+fix(ui): corregir errores en el menu de navegacion
+docs(repo): actualizar reglas de colaboracion
+refactor(api): reorganizar servicios de comunicacion
+```
+
+### 10.2. Reglas para Pull Requests
+
+1. El título debe seguir el formato de Conventional Commits.
+2. La descripción debe explicar los cambios realizados y su propósito.
+3. Cada PR debe estar enfocada en una tarea, funcionalidad o corrección específica.
+4. La rama de origen debe cumplir con la nomenclatura establecida.
+5. La rama de destino será `main`, salvo que el equipo acuerde otra rama de integración.
+6. La PR debe recibir al menos una aprobación de otro colaborador autorizado antes de realizar el merge.
+7. El autor deberá resolver las observaciones realizadas durante la revisión.
+8. No realizar merge mientras existan cambios solicitados o requisitos pendientes.
+
+### 10.3. Estructura de la descripción
+
+Cada Pull Request deberá incluir:
+
+- **Descripción:** propósito de la Pull Request.
+- **Cambios realizados:** resumen de las modificaciones.
+- **Pruebas realizadas:** validaciones efectuadas, cuando corresponda.
+- **Observaciones:** información adicional relevante para la revisión.
+
+### 10.4. Ejemplo completo
+
+Rama de origen:
+
+```text
+feat/login
+```
+
+Título de la Pull Request:
+
+```text
+feat(auth): implementar inicio de sesion
+```
+
+Descripción:
+
+- Se agregó el formulario de inicio de sesión.
+- Se implementó la validación de credenciales.
+- Se integró la comunicación con el backend.
+- Se verificó el funcionamiento del formulario.
