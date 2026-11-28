@@ -10,6 +10,8 @@ Vite dirige las solicitudes `/api` al backend local. Si el API vive en otro orig
 
 La sesión del frontend vive en memoria. Al recargar la página se vuelve a pedir el acceso. **Cerrar sesión** revoca el token actual en Laravel.
 
+La foto de almacén de la pantalla de acceso proviene del [prototipo de MADU](https://www.figma.com/proto/QooH8XDGz8NV638pHfENwx/MADU_Project?node-id=10-2).
+
 ## Plantilla React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

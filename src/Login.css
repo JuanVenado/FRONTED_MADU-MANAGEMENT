@@ -1,78 +1,135 @@
 .login-page {
   display: grid;
   min-height: 100vh;
+  min-height: 100dvh;
   place-items: center;
   padding: 24px 16px;
-  background: radial-gradient(ellipse at top, #e7eff5, var(--background) 65%);
+  background-color: #e7ebea;
+  background-image: linear-gradient(rgb(255 255 255 / 66%), rgb(255 255 255 / 66%)), url("./assets/login-warehouse.jpg");
+  background-position: center;
+  background-size: cover;
+  font-family: "Avenir Next", system-ui, sans-serif;
 }
 
 .login-card {
-  width: min(100%, 400px);
-  padding: clamp(24px, 6vw, 36px);
-  border: 1px solid var(--border);
-  border-radius: 14px;
+  width: min(100%, 960px);
+  padding: clamp(28px, 5vw, 64px) clamp(24px, 4vw, 50px) clamp(24px, 4vw, 40px);
   background: var(--card);
-  box-shadow: 0 12px 36px rgb(1 35 64 / 8%);
+  box-shadow: 0 8px 32px rgb(24 35 49 / 10%);
 }
 
-.login-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--primary);
-  font-size: 15px;
+.login-heading {
+  margin-bottom: 28px;
+}
+
+.login-heading h1 {
+  margin: 0 0 6px;
+  color: #191c1d;
+  font-size: clamp(23px, 3vw, 32px);
   font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
-.login-card h1 {
-  margin: 28px 0 24px;
-  font-size: 28px;
-  letter-spacing: -0.025em;
+.login-heading p {
+  margin: 0;
+  color: #444b51;
+  font-size: 15px;
+  line-height: 1.55;
 }
 
 .login-card fieldset {
   display: grid;
-  gap: 10px;
+  gap: 22px;
   min-inline-size: 0;
   padding: 0;
   margin: 0;
   border: 0;
 }
 
-.login-card label {
+.login-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #191c1d;
+  font-size: 15px;
   font-weight: 600;
 }
 
-.login-card input {
+.login-control {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  gap: 12px;
+  padding-inline: 16px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: #626b73;
+  background: #eff1f2;
+}
+
+.login-control:focus-within {
+  border-color: #21684a;
+}
+
+.login-control input {
   width: 100%;
-  min-height: 44px;
-  margin-bottom: 8px;
-  padding: 0 12px;
-  border: 1px solid var(--input);
-  border-radius: var(--radius);
+  min-width: 0;
+  min-height: 50px;
+  padding: 0;
+  border: 0;
+  outline: 0;
   color: var(--foreground);
-  background: var(--card);
+  background: transparent;
   font-size: 16px;
+}
+
+.login-visibility {
+  display: grid;
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  place-items: center;
+  border: 0;
+  border-radius: 4px;
+  color: inherit;
+  background: transparent;
+}
+
+.login-visibility:hover {
+  background: #e1e5e6;
 }
 
 .login-submit,
 .session-logout {
-  min-height: 40px;
-  border: 1px solid var(--primary);
   border-radius: var(--radius);
   font-weight: 600;
 }
 
-.login-card :focus-visible,
+.login-visibility:focus-visible,
+.login-submit:focus-visible,
 .session-logout:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }
 
 .login-submit {
-  margin-top: 6px;
-  color: var(--primary-foreground);
-  background: var(--primary);
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+  border: 1px solid #21684a;
+  border-radius: 5px;
+  color: #fff;
+  background: #21684a;
+  box-shadow: 0 2px 4px rgb(15 49 34 / 20%);
+  font-size: 17px;
+}
+
+.login-submit:hover:not(:disabled) {
+  background: #19563b;
 }
 
 .login-submit:disabled,
@@ -81,11 +138,31 @@
   cursor: wait;
 }
 
+.login-network {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: clamp(36px, 7vw, 84px);
+  color: #59616b;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.login-network::before {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #21684a;
+  content: "";
+}
+
 .session-logout {
   display: inline-flex;
+  min-height: 40px;
   align-items: center;
   gap: 6px;
   padding: 0 10px;
+  border: 1px solid var(--primary);
   color: var(--primary);
   background: var(--card);
   white-space: nowrap;
@@ -97,6 +174,10 @@
   border-radius: var(--radius);
   background: #fff1ef;
   color: #8c3128;
+}
+
+.login-card .session-error {
+  margin: 0;
 }
 
 @media (max-width: 480px) {
