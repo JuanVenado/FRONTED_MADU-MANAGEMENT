@@ -1,4 +1,16 @@
-# React + Vite
+# MADU Inventario
+
+## Inicio de sesión en desarrollo
+
+1. Arranca Laravel con `php artisan serve` en `http://127.0.0.1:8000`.
+2. En el frontend instala las dependencias y ejecuta `npm run dev`.
+3. Entra con el nombre y la contraseña de un usuario activo de la tabla `usuarios`.
+
+Vite dirige las solicitudes `/api` al backend local. Si el API vive en otro origen, define `VITE_API_URL` con su URL base, incluyendo `/api`, y habilita el origen del frontend en Laravel. En producción también puedes servir `/api` en el mismo dominio.
+
+La sesión del frontend vive en memoria. Al recargar la página se vuelve a pedir el acceso. **Cerrar sesión** revoca el token actual en Laravel.
+
+## Plantilla React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

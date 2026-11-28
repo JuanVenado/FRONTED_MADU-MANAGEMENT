@@ -1,20 +1,16 @@
-import { Activity, ArrowLeftRight, ChevronDown, CircleHelp, ClipboardList, LayoutDashboard, Package, Settings2, ShieldCheck, Warehouse } from 'lucide-react'
-
-const user = {
-  name: 'Valenzuela Guerra',
-  role: 'Administrador',
-  initials: 'VG',
-}
+import { Activity, ArrowLeftRight, ClipboardList, LayoutDashboard, Package, Settings2, ShieldCheck, Warehouse } from 'lucide-react'
 
 const navItems = [
   { label: 'Panel principal', icon: LayoutDashboard },
   { label: 'Catálogo de productos', icon: Package },
-  { label: 'Registro de movimientos', icon: ArrowLeftRight, active: true },
+  { label: 'Registro de movimientos', icon: ArrowLeftRight },
   { label: 'Órdenes de compra', icon: ClipboardList },
   { label: 'Reportes', icon: Activity },
 ]
 
-export default function Sidebar({ activeItem = 'Registro de movimientos', profileName = 'Valenzuela Guerra' }) {
+export default function Sidebar({ activeItem = 'Registro de movimientos', profileName }) {
+  const initials = profileName.trim().split(/\s+/).slice(0, 2).map((name) => name[0]).join('').toUpperCase()
+
   return (
     <aside className="sidebar">
       <a className="brand" href="#inicio" aria-label="MADU Inventario, inicio">
@@ -43,11 +39,10 @@ export default function Sidebar({ activeItem = 'Registro de movimientos', profil
       </nav>
 
       <div className="sidebar-bottom">
-        <button className="profile" type="button">
-          <span className="avatar">{user.initials}</span>
-          <span className="profile-copy"><strong>{user.name}</strong><small>{user.role}</small></span>
-          <ChevronDown size={15} />
-        </button>
+        <div className="profile" title={profileName}>
+          <span className="avatar" aria-hidden="true">{initials}</span>
+          <span className="profile-copy"><strong>{profileName}</strong></span>
+        </div>
       </div>
     </aside>
   )

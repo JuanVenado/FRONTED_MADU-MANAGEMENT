@@ -1,8 +1,7 @@
-import { Bell, Command, Search } from 'lucide-react'
-
 export default function Topbar({
   breadcrumbs = { section: 'Inventario', page: 'Movimientos' },
   branch = 'Sucursal Torreón',
+  actions,
 }) {
   return (
     <header className="topbar">
@@ -14,6 +13,7 @@ export default function Topbar({
       <div className="top-actions">
         <div className="top-divider" />
         <span className="branch"><span className="status-dot" />{branch}</span>
+        {actions}
       </div>
     </header>
   )

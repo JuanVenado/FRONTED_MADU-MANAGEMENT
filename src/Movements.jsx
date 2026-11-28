@@ -6,7 +6,7 @@ import PageHeading from './components/PageHeading.jsx'
 import CancelButton from './components/CancelButton.jsx'
 import ConfirmButton from './components/ConfirmButton.jsx'
 
-export default function InventoryMovements() {
+export default function InventoryMovements({ profileName, sessionError, topbarActions }) {
   const [operation, setOperation] = useState('Salida')
   const [adjustmentSign, setAdjustmentSign] = useState('negative')
   const [unit, setUnit] = useState('Caja')
@@ -31,19 +31,16 @@ export default function InventoryMovements() {
     return matchesSearch && matchesCategory && matchesStock
   })
 
-  const usuario = { name: 'Ing. Roberto Garza',
-    role: 'Encargado de almacén',
-    initials: 'RG'
-  }
-
   return (
     <main className="inventory-shell">
-      <Sidebar />
+      <Sidebar profileName={profileName} />
       <MainContent
         breadcrumbs={{ section: 'Inventario', page: 'Movimientos' }}
         branch="Sucursal Torreón"
+        topbarActions={topbarActions}
         footer={<footer className="page-footer"><span>© 2026 Distribuciones MADU</span><span>Inventario <b>·</b> v2.4.0</span></footer>}
       >
+          {sessionError && <p className="session-error" role="alert">{sessionError}</p>}
           <PageHeading
             eyebrow="MOVIMIENTOS"
             title="Registro de Movimientos"
@@ -184,7 +181,7 @@ export default function InventoryMovements() {
                         <small>{posteriorSueltas} operativas sueltas en almacén.</small>
                       </div>
                       <div className="registration-details">
-                        <div><span>Operador responsable:</span><strong>{usuario.name}</strong></div>
+                        <div><span>Operador responsable:</span><strong>{profileName}</strong></div>
                         <div><span>Hora de registro:</span><strong>{new Date().toLocaleTimeString()}</strong></div>
                       </div>
                     </>
